@@ -2,9 +2,15 @@ package ru.mudan.NauJava.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "subjects")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,48 +21,16 @@ public class Subject {
     private String type;
     @Column(name = "code")
     private String code;
+    @Column(name = "description")
+    private String description;
     @OneToMany(mappedBy = "subject")
     private List<Grade> gradesList;
 
-    public Subject(String name, String type, String code) {
+    public Subject(String name, String type, String code, String description) {
         this.name = name;
         this.type = type;
         this.code = code;
-    }
-
-    public Subject() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+        this.description = description;
     }
 
     @Override

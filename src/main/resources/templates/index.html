@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Предметы в школе</title>
+</head>
+<body>
+<h1>Предметы в школе</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Название предмета</th>
+        <th>Код предмета</th>
+        <th>Тип предмета
+        <th>Описание</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="subject : ${subjects}">
+        <td th:text="${subject.name}"></td>
+        <td th:text="${subject.code}"></td>
+        <td th:text="${subject.type}"></td>
+        <td th:text="${subject.description}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

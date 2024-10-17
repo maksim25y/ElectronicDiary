@@ -1,4 +1,4 @@
-package ru.mudan.NauJava.services.grades;
+package ru.mudan.NauJava.services.classes;
 
 import java.time.LocalDate;
 import ru.mudan.NauJava.entity.Grade;

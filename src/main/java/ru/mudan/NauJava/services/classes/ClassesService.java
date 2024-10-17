@@ -1,4 +1,4 @@
-package ru.mudan.NauJava.services.students;
+package ru.mudan.NauJava.services.classes;
 
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class ClassesService {
         TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
         try {
             var classForDeleting = classRepositoryCustom.findById(classId)
-                    .orElseThrow(() -> new NoSuchElementException("Class not found"));
+                    .orElseThrow(() -> new NoSuchElementException("entity.not.found"));
 
             var studentsOfClass = classForDeleting.getStudentsList();
 
