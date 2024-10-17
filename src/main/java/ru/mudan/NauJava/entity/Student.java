@@ -1,15 +1,33 @@
 package ru.mudan.NauJava.entity;
 
-public class Student {
-    private Long id;
-    private String firstname;
-    private String lastname;
-    private Integer numberOfClass;
+import jakarta.persistence.*;
+import java.util.List;
 
-    public Student(String firstname, String lastname, Integer numberOfClass) {
+@Entity
+@Table(name = "students")
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "firstname")
+    private String firstname;
+    @Column(name = "lastname")
+    private String lastname;
+    @Column(name = "email")
+    private String email;
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+    private ClassEntity classEntity;
+    @OneToMany(mappedBy = "student")
+    private List<Grade> gradesList;
+
+    public Student(String firstname, String lastname, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.numberOfClass = numberOfClass;
+        this.email = email;
+    }
+
+    public Student() {
     }
 
     public Long getId() {
@@ -36,21 +54,33 @@ public class Student {
         this.lastname = lastname;
     }
 
-    public Integer getNumberOfClass() {
-        return numberOfClass;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNumberOfClass(Integer numberOfClass) {
-        this.numberOfClass = numberOfClass;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public ClassEntity getClassEntity() {
+        return classEntity;
+    }
+
+    public void setClassEntity(ClassEntity classEntity) {
+        this.classEntity = classEntity;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", numberOfClass=" + numberOfClass +
-                '}';
+        return "Student{"
+                + "id=" + id
+                + ", firstname='"
+                + firstname + '\''
+                + ", lastname='"
+                + lastname
+                + '\''
+                + ", email='"
+                + email
+                + '\'';
     }
 }
