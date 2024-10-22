@@ -54,7 +54,7 @@ public class CustomRepositoriesTest {
 
     @Test
     void findSubjectByCodeThatPresent(){
-        var subject = new Subject("Math","main","M81");
+        var subject = new Subject("Math","main","M81","test");
         var createdSubject = subjectRepositoryCRUD.save(subject);
         assertAll("Created subject",
                 () -> assertNotNull(subject.getId()),
@@ -76,7 +76,7 @@ public class CustomRepositoriesTest {
 
     @Test
     void findSubjectByTypeThatPresent(){
-        var subject = new Subject("Math","main","M81");
+        var subject = new Subject("Math","main","M81","test");
         var createdSubject = subjectRepositoryCRUD.save(subject);
         assertAll("Created subject",
                 () -> assertNotNull(subject.getId()),
@@ -128,7 +128,7 @@ public class CustomRepositoriesTest {
         student.setClassEntity(createdClassEntity);
         var createdStudent = studentRepositoryCRUD.save(student);
 
-        var subject = new Subject("Math","main","M32");
+        var subject = new Subject("Math","main","M32","test");
         var createdSubject = subjectRepositoryCRUD.save(subject);
 
         var dateForFound = LocalDate.of(2024,10,12);

@@ -1,6 +1,5 @@
 package ru.mudan.NauJava.services;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import ru.mudan.NauJava.entity.ClassEntity;
 import ru.mudan.NauJava.entity.Student;
 import ru.mudan.NauJava.repositories.interfaces.crud.ClassRepository;
 import ru.mudan.NauJava.repositories.interfaces.crud.StudentRepository;
-import ru.mudan.NauJava.services.students.ClassesService;
+import ru.mudan.NauJava.services.classes.ClassesService;
 
 import java.util.List;
 import java.util.NoSuchElementException;
